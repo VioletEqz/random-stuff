@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SENIOR.AI — Retro OS</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+    <header class="desktop-topbar">
+      <div class="desktop-title">
+        <span class="led green"></span>
+        <strong>SENIOR.AI OS</strong>
+        <small>Bitcoin Miner</small>
+      </div>
+      <div class="topbar-right">
+        <span>user: guest</span>
+        <span id="system-status">status: online</span>
+      </div>
+    </header>
+
+    <main class="desktop">
+      <aside class="sidebar">
+        <div class="icon-card selected">
+          <div class="icon-shape blue"></div>
+          <span>Evaluator</span>
+        </div>
+        <div class="icon-card">
+          <div class="icon-shape yellow"></div>
+          <span>Records</span>
+        </div>
+        <div class="icon-card">
+          <div class="icon-shape purple"></div>
+          <span>Messages</span>
+        </div>
+        <div class="icon-card">
+          <div class="icon-shape mint"></div>
+          <span>Party.exe</span>
+        </div>
+      </aside>
+
+      <section class="workspace">
+        <section id="boot" class="window hero-window">
+          <div class="window-bar">
+            <div class="window-actions">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="window-title">SENIOR.AI // evaluator.exe</div>
+          </div>
+
+          <div class="window-body">
+            <p class="eyebrow">Employee Scan Utility</p>
+            <h1>
+              Đang quét MFace chấm công một nhân viên <span>đẹp trai</span>.
+            </h1>
+            <p class="lead">
+              Hệ thống desktop đang khởi tạo quy trình đánh giá, quét dữ liệu dự
+              án và kiểm tra xem hôm nay có phải là một ngày cần ưu tiên ăn bánh
+              hay không.
+            </p>
+
+            <div class="dialog-grid">
+              <div class="boot-console">
+                <div class="console-head">C:\SYSTEM\BOOT\></div>
+                <div id="terminal-log" class="terminal-log"></div>
+              </div>
+
+              <div class="mini-window">
+                <div class="mini-screen">
+                  <div
+                    class="mini-avatar scanning-avatar"
+                    aria-label="Ảnh senior trước khi xác minh"
+                  >
+                    <img
+                      src="./assets/1.jpg"
+                      alt="Ảnh senior đang được hệ thống quét mFace"
+                    />
+                    <div class="scan-grid" aria-hidden="true"></div>
+                    <div class="scan-beam" aria-hidden="true"></div>
+                    <span class="scan-label">IDENTITY UNKNOWN</span>
+                  </div>
+                </div>
+                <div class="scan-status-row">
+                  <span class="scan-status-dot"></span>
+                  <span id="scan-status-text">...</span>
+                </div>
+                <div class="mini-meta">
+                  <div><span>Mode</span><strong>Legacy Scan</strong></div>
+                  <div><span>Build</span><strong>v20.26.7</strong></div>
+                  <div><span>Risk</span><strong>Too competent</strong></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="progress-shell">
+              <div class="progress-meta">
+                <span>boot progress</span><span id="progress-value">0%</span>
+              </div>
+              <div class="progress-track">
+                <div id="progress-bar" class="progress-bar"></div>
+              </div>
+            </div>
+
+            <button id="start-btn" class="button primary" disabled>
+              Start Evaluation
+            </button>
+          </div>
+        </section>
+
+        <section id="profile" class="window reveal-section" hidden>
+          <div class="window-bar">
+            <div class="window-actions">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="window-title">profile.dat</div>
+          </div>
+          <div class="window-body">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Subject Identification</p>
+                <h2>Đối tượng đã được xác định</h2>
+              </div>
+              <span class="badge">verified</span>
+            </div>
+
+            <div class="profile-layout">
+              <article class="profile-card">
+                <div
+                  class="profile-avatar"
+                  aria-label="Ảnh senior sau khi xác minh"
+                >
+                  <img src="./assets/2.png" alt="Ảnh đã xác minh" />
+                  <div class="profile-scan-flash" aria-hidden="true"></div>
+                  <span class="verified-stamp">IDENTITY VERIFIED</span>
+                </div>
+                <div>
+                  <p class="tiny">SENIOR EMPLOYEE</p>
+                  <h3 data-senior-name>Phạm Hải Nam</h3>
+                  <p data-senior-role>Senior Specialist · Department X</p>
+                  <div class="chips">
+                    <span>active</span>
+                    <span>critical</span>
+                    <span>trusted</span>
+                  </div>
+                </div>
+              </article>
+
+              <div class="metric-grid">
+                <article class="metric-card metric-strong">
+                  <span>Độ đáng tin cậy</span><strong>98%</strong
+                  ><small>Ổn định ngoài dự kiến</small><em>TOP TIER</em>
+                </article>
+                <article class="metric-card metric-good">
+                  <span>Khả năng multitask</span><strong>94%</strong
+                  ><small>Vẫn phản hồi được</small><em>HIGH</em>
+                </article>
+                <article class="metric-card metric-critical">
+                  <span>Team impact</span><strong>Critical</strong
+                  ><small>Không nên vắng mặt</small><em>MISSION CRITICAL</em>
+                </article>
+                <article class="metric-card metric-error">
+                  <span>Replacement</span><strong>404</strong
+                  ><small>Not found</small><em>NO MATCH</em>
+                </article>
+              </div>
+            </div>
+
+            <button id="evaluate-btn" class="button primary">
+              Run Full Evaluation
+            </button>
+          </div>
+        </section>
+
+        <section id="evaluation" class="window reveal-section" hidden>
+          <div class="window-bar">
+            <div class="window-actions">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="window-title">evaluation_report.sys</div>
+          </div>
+          <div class="window-body">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Performance Evaluation</p>
+                <h2>Phân tích chỉ số chuyên sâu</h2>
+              </div>
+              <span class="badge alt">anomalies expected</span>
+            </div>
+
+            <div class="stats-grid">
+              <article class="stat-card level-elite" data-score="98">
+                <span class="rank-badge">ELITE</span>
+                <div class="stat-head">
+                  <span>Technical Expertise</span><b>98 / 100</b>
+                </div>
+                <div class="meter"><span></span></div>
+                <p>
+                  Có khả năng nhìn ra vấn đề trước khi phần lớn mọi người nhận
+                  ra có vấn đề.
+                </p>
+                <small>Benchmark comparison: Top tier</small>
+              </article>
+              <article class="stat-card level-elite" data-score="99">
+                <span class="rank-badge">ELITE+</span>
+                <div class="stat-head">
+                  <span>Problem Solving</span><b>99 / 100</b>
+                </div>
+                <div class="meter"><span></span></div>
+                <p>
+                  Biến một vấn đề phức tạp thành checklist ngắn đến mức đáng
+                  ngờ.
+                </p>
+                <small>Average response: “Để anh xem.”</small>
+              </article>
+              <article class="stat-card level-strong" data-score="96">
+                <span class="rank-badge">STRONG</span>
+                <div class="stat-head">
+                  <span>Leadership Impact</span><b>96 / 100</b>
+                </div>
+                <div class="meter"><span></span></div>
+                <p>
+                  Giúp team đi đúng hướng mà không tạo thêm loạn nhịp không cần
+                  thiết.
+                </p>
+                <small>Guidance efficiency: Excellent</small>
+              </article>
+              <article class="stat-card anomaly level-anomaly" data-score="100">
+                <span class="rank-badge">ANOMALY</span>
+                <div class="stat-head">
+                  <span>Fresher Support Capacity</span><b>128%</b>
+                </div>
+                <div class="meter"><span></span></div>
+                <p>Độ kiên nhẫn vượt ngoài giới hạn thiết kế của hệ thống.</p>
+                <small>ANOMALY: Expected human capacity exceeded</small>
+              </article>
+              <article class="stat-card level-resilient" data-score="97">
+                <span class="rank-badge">RESILIENT</span>
+                <div class="stat-head">
+                  <span>Deadline Resistance</span><b>97 / 100</b>
+                </div>
+                <div class="meter"><span></span></div>
+                <p>
+                  Hoạt động ổn định ngay cả khi “tuần sau” đột nhiên thành “cuối
+                  ngày”.
+                </p>
+                <small>Internal tab count: Classified</small>
+              </article>
+              <article
+                class="stat-card special level-legendary"
+                data-score="100"
+              >
+                <span class="rank-badge">LEGENDARY</span>
+                <div class="stat-head">
+                  <span>Team Stability Effect</span><b>SSS</b>
+                </div>
+                <div class="meter"><span></span></div>
+                <p>
+                  Thật sự là quá vip pro - cảm ơn anh vì đã luôn đi rừng và chơi
+                  tank.
+                </p>
+                <small>Observed repeatedly in urgent situations</small>
+              </article>
+            </div>
+
+            <div class="action-row">
+              <button id="compliment-btn" class="button secondary">
+                Generate AI Compliment
+              </button>
+              <button id="hidden-btn" class="button secondary">
+                Mở khóa chỉ số ẩn
+              </button>
+              <button id="experience-btn" class="button secondary">
+                Recalculate Experience
+              </button>
+            </div>
+
+            <div id="dynamic-output" class="output-box">
+              Chọn một module để tiếp tục phân tích.
+            </div>
+          </div>
+        </section>
+
+        <section id="achievements" class="window reveal-section" hidden>
+          <div class="window-bar">
+            <div class="window-actions">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="window-title">achievements.reg</div>
+          </div>
+          <div class="window-body">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Achievements Unlocked</p>
+                <h2>Các thành tựu đã được xác nhận</h2>
+              </div>
+              <span class="badge">5 records</span>
+            </div>
+
+            <div class="achievement-grid">
+              <article class="achievement-card">
+                <span>01</span>
+                <div>
+                  <h3>Project Guardian</h3>
+                  <p>
+                    Bảo vệ dự án khỏi những quyết định được đưa ra với mức tự
+                    tin quá cao.
+                  </p>
+                </div>
+              </article>
+              <article class="achievement-card">
+                <span>02</span>
+                <div>
+                  <h3>Bug Detector</h3>
+                  <p>
+                    Phát hiện bug thông qua sự im lặng bất thường của anh Chiến.
+                  </p>
+                </div>
+              </article>
+              <article class="achievement-card">
+                <span>03</span>
+                <div>
+                  <h3>Deadline Survivor</h3>
+                  <p>Sống sót qua sự kiện OT 2025-2026.</p>
+                </div>
+              </article>
+              <article class="achievement-card">
+                <span>04</span>
+                <div>
+                  <h3>Team Stabilizer</h3>
+                  <p>Giảm hỗn loạn chỉ bằng cách xuất hiện trong cuộc họp.</p>
+                </div>
+              </article>
+              <article class="achievement-card">
+                <span>05</span>
+                <div>
+                  <h3>Context Keeper</h3>
+                  <p>
+                    Nhớ được lý do một quyết định được đưa ra dù tài liệu nội bộ
+                    đã quên.
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <button id="finalize-btn" class="button primary">
+              Tạo báo cáo cuối cùng
+            </button>
+          </div>
+        </section>
+
+        <section id="birthday-detection" class="window reveal-section" hidden>
+          <div class="window-bar alert-bar">
+            <div class="window-actions">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="window-title">calendar_alert.exe</div>
+          </div>
+          <div class="window-body center-body">
+            <p class="eyebrow">Calendar anomaly detected</p>
+            <h2>Phát hiện sự kiện có mức ưu tiên tối đa.</h2>
+            <div id="birthday-log" class="output-box text-left"></div>
+            <button id="birthday-btn" class="button celebration" hidden>
+              Install Birthday Update
+            </button>
+          </div>
+        </section>
+
+        <section
+          id="birthday-mode"
+          class="window reveal-section celebration-window"
+          hidden
+        >
+          <div class="window-bar celebration-bar">
+            <div class="window-actions">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="window-title">birthday_update.pkg</div>
+          </div>
+          <div class="window-body center-body">
+            <p class="eyebrow">Birthday Protocol Active</p>
+            <h2>
+              Chúc mừng sinh nhật,
+              <span data-senior-name>Anh Phạm Hải Nam</span>!
+            </h2>
+            <p class="lead center">
+              Hệ thống đã cài đặt thành công Birthday Update. Work mode hôm nay
+              được khuyến nghị giảm xuống mức tối thiểu hợp pháp.
+            </p>
+
+            <div class="final-report">
+              <div><span>Overall Rating</span><strong>11 / 10</strong></div>
+              <div>
+                <span>Technical Impact</span><strong>Exceptional</strong>
+              </div>
+              <div><span>Leadership Value</span><strong>Critical</strong></div>
+              <div>
+                <span>Team Contribution</span><strong>Irreplaceable</strong>
+              </div>
+              <div>
+                <span>Celebration Status</span><strong>Approved</strong>
+              </div>
+              <div>
+                <span>Work Requirement Today</span
+                ><strong>Strongly Discouraged</strong>
+              </div>
+            </div>
+
+            <button id="break-btn" class="button celebration">
+              Force Senior to Take a Break
+            </button>
+            <div id="break-output" class="output-box text-left"></div>
+          </div>
+        </section>
+
+        <section id="messages" class="window reveal-section" hidden>
+          <div class="window-bar">
+            <div class="window-actions">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="window-title">team_messages.txt</div>
+          </div>
+          <div class="window-body">
+            <div class="section-head">
+              <div>
+                <p class="eyebrow">Team Feedback Records</p>
+                <h2>Thông điệp từ team</h2>
+              </div>
+              <span class="badge">private</span>
+            </div>
+
+            <article class="message-card">
+              <div class="message-meta">
+                <span id="message-id">FEEDBACK ID: 001</span>
+                <strong id="message-from">FROM: TEAM MEMBER A</strong>
+              </div>
+              <blockquote id="message-content">
+                Cảm ơn anh vì luôn hỗ trợ, hướng dẫn và giúp mọi người cảm thấy
+                yên tâm hơn trong những lúc công việc hơi hỗn loạn.
+              </blockquote>
+            </article>
+
+            <div class="action-row">
+              <button id="prev-message" class="button secondary">
+                Previous
+              </button>
+              <button id="next-message" class="button secondary">
+                Load Next Feedback
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section id="ending" class="window reveal-section" hidden>
+          <div class="window-bar">
+            <div class="window-actions">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="window-title">summary.doc</div>
+          </div>
+          <div class="window-body center-body">
+            <p class="eyebrow">Evaluation Complete</p>
+            <h2>Một năm tuổi mới đã được mở khóa.</h2>
+            <p class="lead center">
+              Chúc anh thật nhiều sức khỏe, niềm vui, thành công và thêm nhiều
+              trải nghiệm đáng nhớ. Cảm ơn anh vì luôn là một senior cực kỳ đáng
+              tin cậy của cả team.
+            </p>
+            <div class="action-row center-row">
+              <button id="celebrate-btn" class="button celebration">
+                Celebrate Again
+              </button>
+              <button id="replay-btn" class="button secondary">
+                Replay Evaluation
+              </button>
+            </div>
+            <small
+              >Birthday Protocol completed · Restart recommended next
+              year</small
+            >
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="taskbar">
+      <span>Start</span>
+      <span>evaluator.exe</span>
+      <span>birthday_update.pkg</span>
+      <span class="taskbar-clock">12:08 PM</span>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
